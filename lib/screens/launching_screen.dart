@@ -23,9 +23,13 @@ class LaunchingScreen extends StatelessWidget {
                 width: 400,
                 height: 400,
               ),
-              Image.asset(
-                'assets/images/sub.png', // Ensure this matches the actual file name
-                width: 350,
+              Padding(
+                padding: const EdgeInsets.only(
+                    top: 90.0), // Adjust the top value as needed
+                child: Image.asset(
+                  'assets/images/sub1.png', // Ensure this matches the actual file name
+                  width: 350,
+                ),
               ),
             ],
           ),
