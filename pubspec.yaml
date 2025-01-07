@@ -1,4 +1,4 @@
-name: kyda_app
+name: kyda
 description: A new Flutter project
 
 environment:
@@ -9,6 +9,16 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   smooth_page_indicator: ^1.1.0
+  flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.14.2
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/icon.png"
+  min_sdk_android: 24 # android min sdk min:16, defualt 21
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/images/icon.png"
 
 flutter:
   uses-material-design: true
