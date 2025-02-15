@@ -90,3 +90,6 @@ flutter:
   # see https://flutter.dev/to/font-from-package
   assets:
     - assets/images/nameLogo.png
+    - assets/images/google.png
+    - assets/images/apple.png
+    - assets/images/nameLogo11.png
