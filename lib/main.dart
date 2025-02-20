@@ -1,9 +1,13 @@
 
 import 'package:flutter/material.dart';
-import 'screens/launching_screen.dart';
+import 'package:get/get.dart';
+import 'package:kyda/routes/routes.dart';
+// Add this import
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // Ensure Flutter binding is initialized// Initialize Firebase
+  runApp(
+    const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -11,13 +15,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Kyda App',
+    return GetMaterialApp(
+      title: 'Lafia',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: const Color(0xFF0754AA),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
-      home: const LaunchingScreen(),
+      initialRoute: '/', // Initial route
+      getPages: TAppRoute.pages,
     );
   }
 }
