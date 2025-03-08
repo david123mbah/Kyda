@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:intl_phone_field/countries.dart' as phone_countries;
 
 class FillProfilePage extends StatefulWidget {
   const FillProfilePage({super.key});
@@ -11,6 +12,25 @@ class FillProfilePage extends StatefulWidget {
 class _FillProfilePageState extends State<FillProfilePage> {
   String? selectedGender;
   DateTime? selectedDate;
+  
+  // List of Central African country codes
+  final List<String> centralAfricanCountryCodes = [
+    'CM', // Cameroon
+    'NG', // Nigeria
+    'CF', // Central African Republic
+    'TD', // Chad
+    'CG', // Republic of Congo
+    'CD', // Democratic Republic of Congo
+    'GQ', // Equatorial Guinea
+    'GA', // Gabon
+  ];
+  
+  // Filter to get only Central African countries
+  List<phone_countries.Country> get centralAfricanCountries {
+    return phone_countries.countries.where(
+      (country) => centralAfricanCountryCodes.contains(country.code)
+    ).toList();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,11 +123,12 @@ class _FillProfilePageState extends State<FillProfilePage> {
             ),
             const SizedBox(height: 16),
 
-            // Phone Number Field
+            // Phone Number
             IntlPhoneField(
               decoration: _inputDecoration('Phone Number'),
-              initialCountryCode: 'US',
+              initialCountryCode: 'CM',
               dropdownIconPosition: IconPosition.trailing,
+              countries: centralAfricanCountries,
             ),
             const SizedBox(height: 16),
 
@@ -115,7 +136,7 @@ class _FillProfilePageState extends State<FillProfilePage> {
             DropdownButtonFormField<String>(
               decoration: _inputDecoration('Gender'),
               value: selectedGender,
-              items: ['Male', 'Female', 'Other']
+              items: ['Male', 'Female']
                   .map((gender) => DropdownMenuItem(
                         value: gender,
                         child: Text(gender),

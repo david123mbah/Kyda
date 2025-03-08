@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-//import 'signup.dart';
+import 'signup_page.dart';
 //import 'login.dart';
-import 'your_profile.dart';
+//import 'your_profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FillProfilePage(),
+      home: SignUpScreen(),
     );
   }
 }
