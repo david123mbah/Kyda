@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   intl_phone_field: ^3.2.0
   email_validator: ^3.0.0
+  firebase: ^9.0.3
+  google_sign_in: ^6.3.0
 
 dev_dependencies:
   flutter_test:
