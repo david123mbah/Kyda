@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kyda/auth_services.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -192,16 +194,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Container(
-                    padding: const EdgeInsets.all(12),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(color: Colors.grey.shade300),
-                      color: Colors.white,
-                    ),
-                    child: Image.asset(
-                      'assets/images/google.png',
-                      height: 24,
+                  GestureDetector(
+                    onTap: () async{
+                      UserCredential? userCredential = await GoogleAuthService().signInWithGoogle();
+                      if (userCredential != null) {
+                        print('User: ${userCredential.user!.displayName}');
+                      }else {
+                        print('Sign in failed');
+                      }
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.grey.shade300),
+                        color: Colors.white,
+                      ),
+                      child: Image.asset(
+                        'assets/images/google.png',
+                        height: 24,
+                      ),
                     ),
                   ),
                   const SizedBox(width: 24),
