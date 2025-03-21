@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "735082912671-5tskps9mu8f9v07ihjbps2jao08c649u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kyda",
+            "certificate_hash": "0137e7475358113a30f700a4bff32760e2b8f34c"
+          }
+        },
+        {
           "client_id": "735082912671-covaaihq8m1kb3lhstfgjcp7pmr6cei3.apps.googleusercontent.com",
           "client_type": 3
         }

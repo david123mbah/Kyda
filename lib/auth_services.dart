@@ -3,7 +3,10 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 class GoogleAuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final GoogleSignIn _googleSignIn = GoogleSignIn();
+  final GoogleSignIn _googleSignIn = GoogleSignIn(
+    clientId: "kyda-edu.firebaseapp.com",
+    scopes: ['email'],
+  );
 
   Future<UserCredential?> signInWithGoogle() async {
     try {
