@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:kyda/signup_page.dart';
+import 'package:kyda/auth_services.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -201,7 +204,29 @@ class _LoginPageState extends State<LoginPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _socialLoginButton('assets/images/google.png'),
+                  GestureDetector(
+                    onTap: () async {
+                      UserCredential? userCredential =
+                          await GoogleAuthService().signInWithGoogle();
+                      if (userCredential != null) {
+                        print('User: ${userCredential.user!.displayName}');
+                      } else {
+                        print('Sign in failed');
+                      }
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(color: Colors.grey.shade300),
+                        color: Colors.white,
+                      ),
+                      child: Image.asset(
+                        'assets/images/google.png',
+                        height: 24,
+                      ),
+                    ),
+                  ),
                   const SizedBox(width: 16),
                   _socialLoginButton('assets/images/apple.png'),
                 ],
@@ -214,7 +239,12 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   const Text("Don't have an Account?"),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignUpScreen()),
+                      );
+                    },
                     child: const Text(
                       'SIGN UP',
                       style: TextStyle(

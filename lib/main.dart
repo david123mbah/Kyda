@@ -1,8 +1,10 @@
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
+import 'screens/launching_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'signup_page.dart';
+//import 'signup_page.dart';
 //import 'login.dart';
 //import 'your_profile.dart';
 
@@ -29,9 +31,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      title: 'Kyda App',
       debugShowCheckedModeBanner: false,
-      home: SignUpScreen(),
+      theme: ThemeData(
+        primaryColor: const Color(0xFF0754AA),
+      ),
+      home: const LaunchingScreen(),
     );
   }
 }

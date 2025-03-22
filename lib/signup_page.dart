@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kyda/auth_services.dart';
+import 'package:kyda/login.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -195,11 +196,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
-                    onTap: () async{
-                      UserCredential? userCredential = await GoogleAuthService().signInWithGoogle();
+                    onTap: () async {
+                      UserCredential? userCredential =
+                          await GoogleAuthService().signInWithGoogle();
                       if (userCredential != null) {
                         print('User: ${userCredential.user!.displayName}');
-                      }else {
+                      } else {
                         print('Sign in failed');
                       }
                     },
@@ -240,7 +242,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     style: TextStyle(fontSize: 14),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => LoginPage()));
+                    },
                     child: const Text(
                       'SIGN IN',
                       style: TextStyle(
